@@ -1,0 +1,38 @@
+{
+    "name": "imagejs",
+    "version": "0.0.1",
+    "description": "Image Processor",
+    "private": false,
+    "license": "MIT",
+    "author": {
+        "name": "Guyon Roche",
+        "email": "cyber.sapiens@hotmail.com",
+        "url": "https://github.com/guyonroche/imagejs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/guyonroche/imagejs.git"
+    },
+    "keywords": [
+        "image", "bitmap", "jpg", "jpeg", "resize", "negative"
+    ],
+    "dependencies": {
+        "bluebird": "*",
+        "jpeg-js": "0.1.1",
+        "underscore": "1.4.4"
+    },
+    "devDependencies": {
+        "jasmine-node": "~1.14",
+        "memorystream": "*"
+    },
+    "scripts": {
+        "test": "jasmine-node spec"
+    },
+    "main": "./index.js",
+    "files": [
+        "index.js",
+        "lib",
+        "LICENSE",
+        "README.md"
+    ]
+}
