@@ -4,12 +4,16 @@ var Bitmap = BitmapJS.Bitmap;
 var filename = process.argv[2];
 
 var bm = new Bitmap();
-bm.readFile(filename, BitmapJS.ImageType.JPG)
+bm.readFile(filename)
     .then(function() {
         var neg = bm.negative();
-        var negFilename = filename.replace('.jpg', '.neg.jpg');
-        return neg.writeFile(negFilename, BitmapJS.ImageType.JPG);
+        var suffix = filename.substr(-4);
+        var negFilename = filename.replace(suffix, '.neg' + suffix);
+        return neg.writeFile(negFilename);
     })
     .then(function() {
         console.log("Done");
+    })
+    .catch(function(error) {
+        console.log(error.message);
     });

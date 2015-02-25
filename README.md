@@ -10,6 +10,27 @@ This is an early release supporting only jpeg files and only the simplest resize
 
 npm install imagejs
 
+# New Features!
+
+<ul>
+    <li>
+        <a href="#image-resize">Enhanced Resize</a>
+        <ul>
+            <li>New Resize Algorithm: Bilinear Interpolation</li>
+            <li>Stretch, Crop or Pad to Fit</li>
+        </ul>
+    </li>
+    <li><a href="#reading-images">PNG Image files supported</a></li>
+</ul>
+
+# Coming Soon
+
+<ul>
+    <li>Bicubic Interpolation</li>
+    <li>Crop</li>
+    <li>Pad</li>
+</ul>
+
 # Contents
 
 <ul>
@@ -17,7 +38,12 @@ npm install imagejs
         <a href="#interface">Interface</a>
         <ul>
             <li><a href="#creating-bitmaps">Creating Bitmaps</a></li>
-            <li><a href="#manipulating-bitmaps">Manipulating Bitmaps</a></li>
+            <li>
+                <a href="#manipulating-bitmaps">Manipulating Bitmaps</a>
+                <ul>
+                    <li><a href="set-pixel">Set Pixel</a></li>
+                </ul>
+            </li>
             <li><a href="#reading-images">Reading Images</a></li>
             <li><a href="#writing-images">Writing Images</a></li>
         </ul>
@@ -55,6 +81,7 @@ var nullBitmap = new ImageJS.Bitmap();
 
 ## Manipulating Bitmaps
 
+```javascript
 // Set a pixel
 // where: 0 <= x < width, 0 <= y < height, 0 <= a,r,g,b < 256
 bitmap.setPixel(x,y, a,r,g,b);
@@ -63,20 +90,46 @@ bitmap.setPixel(x,y, a,r,g,b);
 var negative = bitmap.negative();
 
 // Create a new bitmap resized from an original
-// Currently only nearest neighbor is implemented. More to follow.
-var thumbnail = bitmap.resize({width: 64, height: 64, algorithm: "nearestNeighbor"})
+
+// resize to 64x64 icon sized bitmap using nearest neighbor algorithm & stretch to fit
+var thumbnail = bitmap.resize({
+    width: 64, height: 64,
+    algorithm: "nearestNeighbor"
+});
+
+// resize to 100x150 bitmap using bilinear interpolation and cropping to fit, gravity center
+var thumbnail = bitmap.resize({
+    width: 100, height: 150,
+    algorithm: "bilinearInterpolation",
+    fit: "crop",
+    gravity: {x:0.5, y:0.5} // center - note: this is the default
+});
+
+// resize to 300x200 bitmap using bilinear interpolation and padding to fit, pad color solid red
+var thumbnail = bitmap.resize({
+    width: 100, height: 150,
+    algorithm: "bilinearInterpolation",
+    fit: "pad",
+    padColor: {r:255, g:0, b:0, a:255}
+});
+
+```
+
+**Supported Resize Algorithms**
+* nearestNeighbor
+* bilinearInterpolation
 
 ## Reading Images
 
 ```javascript
 // read from a file
 var bitmap = new Bitmap();
-bitmap.readFile(filename, ImageJS.ImageType.JPG)
+bitmap.readFile(filename)
     .then(function() {
         // bitmap is ready
     });
 
-// read from stream
+// read JPG data from stream
 var stream = createReadStream();
 var bitmap = new Bitmap();
 bitmap.read(stream, ImageJS.ImageType.JPG)
@@ -90,14 +143,14 @@ bitmap.read(stream, ImageJS.ImageType.JPG)
 
 ```javascript
 // write to a file
-return bitmap.writeFile(filename, ImageJS.ImageType.JPG)
+return bitmap.writeFile(filename)
     .then(function() {
         // bitmap has been saved
     });
 
-// write to a stream
+// write PNG Image to a stream
 var stream = createWriteStream();
-return bitmap.write(stream, ImageJS.ImageType.JPG)
+return bitmap.write(stream, ImageJS.ImageType.PNG)
     .then(function() {
         // bitmap has been written and stream ended
     });
@@ -110,4 +163,5 @@ return bitmap.write(stream, ImageJS.ImageType.JPG)
 | Version | Changes |
 | ------- | ------- |
 | 0.0.1 | Initial Version |
+| 0.0.2 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bilinear Interpolation</li><li>Stretch, Crop or Pad to Fit</li></ul></li><li><a href="#reading-images">PNG Image files supported</a></li></ul> |
 

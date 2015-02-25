@@ -1,6 +1,6 @@
 {
     "name": "imagejs",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Image Processor",
     "private": false,
     "license": "MIT",
@@ -19,6 +19,7 @@
     "dependencies": {
         "bluebird": "*",
         "jpeg-js": "0.1.1",
+        "node-png": "0.4.3",
         "underscore": "1.4.4"
     },
     "devDependencies": {
