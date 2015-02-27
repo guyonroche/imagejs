@@ -132,7 +132,7 @@ bitmap.readFile(filename)
 // read JPG data from stream
 var stream = createReadStream();
 var bitmap = new Bitmap();
-bitmap.read(stream, ImageJS.ImageType.JPG)
+bitmap.read(stream, { type: ImageJS.ImageType.JPG })
     .then(function() {
         // bitmap is ready
     });
@@ -142,19 +142,18 @@ bitmap.read(stream, ImageJS.ImageType.JPG)
 ## Writing Images
 
 ```javascript
-// write to a file
-return bitmap.writeFile(filename)
+// write to a jpg file, quality 75 (default is 90)
+return bitmap.writeFile("image.jpg", { quality:75 })
     .then(function() {
         // bitmap has been saved
     });
 
 // write PNG Image to a stream
 var stream = createWriteStream();
-return bitmap.write(stream, ImageJS.ImageType.PNG)
+return bitmap.write(stream, {type: ImageJS.ImageType.PNG})
     .then(function() {
         // bitmap has been written and stream ended
     });
-
 
 ```
 
