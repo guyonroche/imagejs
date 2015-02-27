@@ -16,11 +16,9 @@ npm install imagejs
     <li>
         <a href="#image-resize">Enhanced Resize</a>
         <ul>
-            <li>New Resize Algorithm: Bilinear Interpolation</li>
-            <li>Stretch, Crop or Pad to Fit</li>
+            <li>New Resize Algorithm: Bicubic Interpolation</li>
         </ul>
     </li>
-    <li><a href="#reading-images">PNG Image files supported</a></li>
 </ul>
 
 # Coming Soon
@@ -105,10 +103,10 @@ var thumbnail = bitmap.resize({
     gravity: {x:0.5, y:0.5} // center - note: this is the default
 });
 
-// resize to 300x200 bitmap using bilinear interpolation and padding to fit, pad color solid red
+// resize to 300x200 bitmap using bicubic interpolation and padding to fit, pad color solid red
 var thumbnail = bitmap.resize({
-    width: 100, height: 150,
-    algorithm: "bilinearInterpolation",
+    width: 300, height: 200,
+    algorithm: "bicubicInterpolation",
     fit: "pad",
     padColor: {r:255, g:0, b:0, a:255}
 });
@@ -118,6 +116,7 @@ var thumbnail = bitmap.resize({
 **Supported Resize Algorithms**
 * nearestNeighbor
 * bilinearInterpolation
+* bicubicInterpolation
 
 ## Reading Images
 
@@ -163,4 +162,4 @@ return bitmap.write(stream, {type: ImageJS.ImageType.PNG})
 | ------- | ------- |
 | 0.0.1 | Initial Version |
 | 0.0.2 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bilinear Interpolation</li><li>Stretch, Crop or Pad to Fit</li></ul></li><li><a href="#reading-images">PNG Image files supported</a></li></ul> |
-
+| 0.0.3 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bicubic Interpolation</li></ul></li></ul> |

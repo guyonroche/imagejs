@@ -1,6 +1,6 @@
 {
     "name": "imagejs",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Image Processor",
     "private": false,
     "license": "MIT",
