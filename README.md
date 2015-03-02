@@ -15,19 +15,14 @@ npm install imagejs
 
 <ul>
     <li>
-        <a href="#image-resize">Enhanced Resize</a>
+        <a href="#resize">Enhanced Resize</a>
         <ul>
-            <li>New Resize Algorithm: Bicubic Interpolation</li>
+            <li>New Resize Algorithm: Bezier Interpolation</li>
+            <li>2 Pass algorithm to compensate for undersampling</li>
         </ul>
     </li>
-</ul>
-
-# Coming Soon
-
-<ul>
-    <li>Bicubic Interpolation</li>
-    <li>Crop</li>
-    <li>Pad</li>
+    <li><a href="blur">Blur Images</a></li>
+    <li><a href="crop">Crop Images</a></li>
 </ul>
 
 # Contents
@@ -41,6 +36,10 @@ npm install imagejs
                 <a href="#manipulating-bitmaps">Manipulating Bitmaps</a>
                 <ul>
                     <li><a href="set-pixel">Set Pixel</a></li>
+                    <li><a href="negative">Negative</a></li>
+                    <li><a href="blur">Blur</a></li>
+                    <li><a href="crop">Crop</a></li>
+                    <li><a href="resize">Resize</a></li>
                 </ul>
             </li>
             <li><a href="#reading-images">Reading Images</a></li>
@@ -80,16 +79,33 @@ var nullBitmap = new ImageJS.Bitmap();
 
 ## Manipulating Bitmaps
 
+### Set Pixel
 ```javascript
 // Set a pixel
 // where: 0 <= x < width, 0 <= y < height, 0 <= a,r,g,b < 256
 bitmap.setPixel(x,y, a,r,g,b);
+```
 
+### Negative
+```javascript
 // Create a new bitmap that is a negative of the original
 var negative = bitmap.negative();
+```
 
-// Create a new bitmap resized from an original
+### Blur
+```javascript
+// blur with simple gaussian filter
+var blurred = bitmap.blur();
+```
 
+### Crop
+```javascript
+// create a new bitmap from a portion of another
+var cropped = bitmap.crop({top: 50, left: 30, width: 100, height: 100});
+```
+
+### Resize
+```javascript
 // resize to 64x64 icon sized bitmap using nearest neighbor algorithm & stretch to fit
 var thumbnail = bitmap.resize({
     width: 64, height: 64,
@@ -118,6 +134,7 @@ var thumbnail = bitmap.resize({
 * nearestNeighbor
 * bilinearInterpolation
 * bicubicInterpolation
+* bezierInterpolation
 
 ## Reading Images
 
@@ -164,3 +181,4 @@ return bitmap.write(stream, {type: ImageJS.ImageType.PNG})
 | 0.0.1 | Initial Version |
 | 0.0.2 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bilinear Interpolation</li><li>Stretch, Crop or Pad to Fit</li></ul></li><li><a href="#reading-images">PNG Image files supported</a></li></ul> |
 | 0.0.3 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bicubic Interpolation</li></ul></li></ul> |
+| 0.0.4 | <ul><li><a href="#resizing-bitmaps">Enhanced Resize</a><ul><li>New Resize Algorithm: Bezier Interpolation</li><li>2 Pass algorithm to compensate for undersampling</li></ul></li><li><a href="blur">Blur Images</a></li><li><a href="crop">Crop Images</a></li></ul> |
