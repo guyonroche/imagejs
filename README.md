@@ -23,6 +23,12 @@ npm install imagejs
     </li>
     <li><a href="blur">Blur Images</a></li>
     <li><a href="crop">Crop Images</a></li>
+    <li>
+        Bug Fixes
+        <ul>
+            <li>Fixed enlargement bug</li>
+        </ul>
+    </li>
 </ul>
 
 # Contents
