@@ -4,7 +4,8 @@ Read, manipulate and write Images
 
 Due to a lack of pure JavaScript Image manipulation libraries available, I decided to implement one.
 
-This is an early release supporting only jpeg files and only the simplest resize algorithm but there will be more to come.
+This is an early release supporting only jpeg and png files and only the simplest resize algorithms
+but there will be more to come.
 
 # Installation
 
