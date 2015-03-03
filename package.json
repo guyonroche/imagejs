@@ -14,7 +14,8 @@
         "url": "https://github.com/guyonroche/imagejs.git"
     },
     "keywords": [
-        "image", "bitmap", "jpg", "jpeg", "resize", "negative"
+        "pure", "javascript", "image", "bitmap", "jpg", "jpeg", "resize", "negative", "crop",
+        "bilinear", "bicubic", "hermite", "bezier"
     ],
     "dependencies": {
         "bluebird": "*",
