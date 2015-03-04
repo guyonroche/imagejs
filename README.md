@@ -65,8 +65,12 @@ var ImageJS = require("imagejs");
 
 ```javascript
 
-// Create a blank bitmap 320x200
-var blankBitmap = new ImageJS.Bitmap({width: 320, height: 200});
+// Create an uninitialized bitmap 320x200
+// Note: the bitmap may be filled with random data
+var bitmap = new ImageJS.Bitmap({width: 320, height: 200});
+
+// Create a bitmap filled with green
+var greenBitmap = new ImageJS.Bitmap({width: 100, height: 100, color: {r: 255, g: 255, b: 255, a: 255});
 
 // Copy a bitmap
 var copy = new ImageJS.Bitmap(otherBitmap);
