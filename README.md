@@ -90,10 +90,26 @@ var nullBitmap = new ImageJS.Bitmap();
 ## Manipulating Bitmaps
 
 ### Set Pixel
+
 ```javascript
 // Set a pixel
-// where: 0 <= x < width, 0 <= y < height, 0 <= a,r,g,b < 256
-bitmap.setPixel(x,y, a,r,g,b);
+// where: 0 <= x < width, 0 <= y < height, 0 <= r,g,b,a < 256
+bitmap.setPixel(x,y, r,g,b,a);
+
+// Set a pixesl using a color object
+var yellow = {r:255, g:255, b:0}; // alpha defaults to 255
+bitmap.setPixel(x,y, yellow);
+```
+
+### Get Pixel
+
+```javascript
+// fetch the color of a pixel
+var color = bitmap.getPixel(x,y);
+
+// to improve performance you can supply the color object
+var color = {};
+color = bitmap.getPixel(x,y, color);
 ```
 
 ### Negative
@@ -144,6 +160,7 @@ var thumbnail = bitmap.resize({
 * nearestNeighbor
 * bilinearInterpolation
 * bicubicInterpolation
+* hermiteInterpolation
 * bezierInterpolation
 
 ## Reading Images
