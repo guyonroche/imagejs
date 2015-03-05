@@ -14,21 +14,10 @@ npm install imagejs
 # New Features!
 
 <ul>
-    <li>
-        <a href="#resize">Enhanced Resize</a>
-        <ul>
-            <li>New Resize Algorithm: Bezier Interpolation</li>
-            <li>2 Pass algorithm to compensate for undersampling</li>
-        </ul>
-    </li>
-    <li><a href="blur">Blur Images</a></li>
-    <li><a href="crop">Crop Images</a></li>
-    <li>
-        Bug Fixes
-        <ul>
-            <li>Fixed enlargement bug</li>
-        </ul>
-    </li>
+    <li>Internal Restructuring</li>
+    <li>Corrected Documentation</li>
+    <li>Better Bitmap Construction</li>
+    <li>Performance Improvements</li>
 </ul>
 
 # Contents
@@ -208,4 +197,6 @@ return bitmap.write(stream, {type: ImageJS.ImageType.PNG})
 | 0.0.1 | Initial Version |
 | 0.0.2 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bilinear Interpolation</li><li>Stretch, Crop or Pad to Fit</li></ul></li><li><a href="#reading-images">PNG Image files supported</a></li></ul> |
 | 0.0.3 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bicubic Interpolation</li></ul></li></ul> |
-| 0.0.4 | <ul><li><a href="#resizing-bitmaps">Enhanced Resize</a><ul><li>New Resize Algorithm: Bezier Interpolation</li><li>2 Pass algorithm to compensate for undersampling</li></ul></li><li><a href="blur">Blur Images</a></li><li><a href="crop">Crop Images</a></li></ul> |
+| 0.0.5 | <ul><li><a href="#resizing-bitmaps">Enhanced Resize</a><ul><li>New Resize Algorithm: Bezier Interpolation</li><li>2 Pass algorithm to compensate for undersampling</li></ul></li><li><a href="blur">Blur Images</a></li><li><a href="crop">Crop Images</a></li></ul> |
+| 0.0.6 | <ul><li>Internal Restructuring</li><li>Corrected Documentation</li><li>Better Bitmap Construction</li><li>Performance Improvements</li></ul> |
+
