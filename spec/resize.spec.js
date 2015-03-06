@@ -82,7 +82,18 @@ describe("Bitmap.resize", function() {
             expect(color.g).toBeLessThan(253);
             expect(color.b).toBeLessThan(253);
         });
+    });
+    
+    it("resizes same aspect ratios", function() {
+        var img1 = new Bitmap({width: 250, height: 250, color: solidWhite});
+
+        var img2a = img1.resize({width:150, height: 150, algorithm: "bezierInterpolation", fit: "pad"});
+        var img2b = img1.resize({width:150, height: 150, algorithm: "bezierInterpolation", fit: "crop"});
+        var img2c = img1.resize({width:150, height: 150, algorithm: "bezierInterpolation", fit: "stretch"});
         
-        
+        var img3a = img1.resize({width:446, height: 446, algorithm: "bezierInterpolation", fit: "pad"});
+        var img3b = img1.resize({width:446, height: 446, algorithm: "bezierInterpolation", fit: "crop"});
+        var img3c = img1.resize({width:446, height: 446, algorithm: "bezierInterpolation", fit: "stretch"});
+
     });
 });

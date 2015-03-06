@@ -22,6 +22,7 @@ npm install imagejs
         Bug Fixes
         <ul>
             <li>readFile this bug</li>
+            <li>resize same aspect ratio fix</li>
         </ul>
     </li>
 </ul>
