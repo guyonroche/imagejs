@@ -18,6 +18,12 @@ npm install imagejs
     <li>Corrected Documentation</li>
     <li>Better Bitmap Construction</li>
     <li>Performance Improvements</li>
+    <li>
+        Bug Fixes
+        <ul>
+            <li>readFile this bug</li>
+        </ul>
+    </li>
 </ul>
 
 # Contents
