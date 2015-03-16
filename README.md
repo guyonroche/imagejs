@@ -14,17 +14,7 @@ npm install imagejs
 # New Features!
 
 <ul>
-    <li>Internal Restructuring</li>
-    <li>Corrected Documentation</li>
-    <li>Better Bitmap Construction</li>
-    <li>Performance Improvements</li>
-    <li>
-        Bug Fixes
-        <ul>
-            <li>readFile this bug</li>
-            <li>resize same aspect ratio fix</li>
-        </ul>
-    </li>
+    <li><a href="rotate">Rotate</a></li>
 </ul>
 
 # Contents
@@ -42,6 +32,7 @@ npm install imagejs
                     <li><a href="blur">Blur</a></li>
                     <li><a href="crop">Crop</a></li>
                     <li><a href="resize">Resize</a></li>
+                    <li><a href="rotate">Rotate</a></li>
                 </ul>
             </li>
             <li><a href="#reading-images">Reading Images</a></li>
@@ -158,6 +149,26 @@ var thumbnail = bitmap.resize({
 * bicubicInterpolation
 * hermiteInterpolation
 * bezierInterpolation
+
+### Rotate
+```javascript
+// rotate image 0.5 radians counterclockwise, keeping the dimensions the same and padding with red
+// Note: default fit is "same" so including it in options is optional
+var red = {r: 255, g: 0, b: 0, a: 255};
+var rotated = bitmap.rotate({radians: 0.5, fit: "same", padColor: red});
+
+// rotate image 10 degrees clockwise, preserving entire image and padding with transparent white
+var transparentWhite = {r: 255, g: 255, b: 255, a: 0};
+var rotated = bitmap.rotate({degrees: -10, fit: "pad", padColor: transparentWhite});
+
+// rotate image 45 degress counterclockwise, cropping so all of the result image comes from the source.
+var rotated = bitmap.rotate({degrees: 45, fit: "crop"});
+
+// rotate image 30 degrees counterclockwise, selecting custom dimensions. Note: image will not be scaled.
+// default padColor (if required) is transparentBlack.
+var rotated = bitmap.rotate({degrees: 30, fit: "custom", width: 100, height: 150});
+
+```
 
 ## Reading Images
 

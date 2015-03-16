@@ -1,6 +1,6 @@
 {
     "name": "imagejs",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Image Processor",
     "private": false,
     "license": "MIT",
@@ -14,7 +14,7 @@
         "url": "https://github.com/guyonroche/imagejs.git"
     },
     "keywords": [
-        "pure", "javascript", "image", "bitmap", "jpg", "jpeg", "resize", "negative", "crop",
+        "pure", "javascript", "image", "bitmap", "jpg", "jpeg", "resize", "rotate", "negative", "crop",
         "bilinear", "bicubic", "hermite", "bezier"
     ],
     "dependencies": {
