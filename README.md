@@ -1,11 +1,8 @@
 # ImageJS
 
-Read, manipulate and write Images
-
-Due to a lack of pure JavaScript Image manipulation libraries available, I decided to implement one.
-
-This is an early release supporting only jpeg and png files and only the simplest resize algorithms
-but there will be more to come.
+A Pure JavaScript Image manipulation library.
+ Read and write JPG and PNG image files or streams and perform a number of operations on them.
+ 
 
 # Installation
 
@@ -14,7 +11,13 @@ npm install imagejs
 # New Features!
 
 <ul>
-    <li><a href="rotate">Rotate</a></li>
+    <li><a href="#rotate">Rotate</a></li>
+</ul>
+
+# Backlog
+
+<ul>
+    <li>Graphics Object (draw and fill lines and shapes)</li>
 </ul>
 
 # Contents
@@ -27,12 +30,12 @@ npm install imagejs
             <li>
                 <a href="#manipulating-bitmaps">Manipulating Bitmaps</a>
                 <ul>
-                    <li><a href="set-pixel">Set Pixel</a></li>
-                    <li><a href="negative">Negative</a></li>
-                    <li><a href="blur">Blur</a></li>
-                    <li><a href="crop">Crop</a></li>
-                    <li><a href="resize">Resize</a></li>
-                    <li><a href="rotate">Rotate</a></li>
+                    <li><a href="#set-pixel">Set Pixel</a></li>
+                    <li><a href="#negative">Negative</a></li>
+                    <li><a href="#blur">Blur</a></li>
+                    <li><a href="#crop">Crop</a></li>
+                    <li><a href="#resize">Resize</a></li>
+                    <li><a href="#rotate">Rotate</a></li>
                 </ul>
             </li>
             <li><a href="#reading-images">Reading Images</a></li>
@@ -41,6 +44,8 @@ npm install imagejs
     </li>
     <li><a href="#release-history">Release History</a></li>
 </ul>
+
+
 
 # Interface
 
@@ -217,4 +222,5 @@ return bitmap.write(stream, {type: ImageJS.ImageType.PNG})
 | 0.0.3 | <ul><li><a href="#image-resize">Enhanced Resize</a><ul><li>New Resize Algorithm: Bicubic Interpolation</li></ul></li></ul> |
 | 0.0.5 | <ul><li><a href="#resizing-bitmaps">Enhanced Resize</a><ul><li>New Resize Algorithm: Bezier Interpolation</li><li>2 Pass algorithm to compensate for undersampling</li></ul></li><li><a href="blur">Blur Images</a></li><li><a href="crop">Crop Images</a></li></ul> |
 | 0.0.6 | <ul><li>Internal Restructuring</li><li>Corrected Documentation</li><li>Better Bitmap Construction</li><li>Performance Improvements</li></ul> |
-
+| 0.0.8 | <ul><li>Bug Fixes<ul><li>readFile this bug</li><li>resize same aspect ratio fix</li></ul></li></ul> |
+| 0.0.9 | <ul><li><a href="#rotate">Rotate</a></li></ul>
