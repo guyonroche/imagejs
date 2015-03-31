@@ -62,7 +62,10 @@ var ImageJS = require("imagejs");
 var bitmap = new ImageJS.Bitmap({width: 320, height: 200});
 
 // Create a bitmap filled with green
-var greenBitmap = new ImageJS.Bitmap({width: 100, height: 100, color: {r: 255, g: 255, b: 255, a: 255});
+var greenBitmap = new ImageJS.Bitmap({
+    width: 100, height: 100,
+    color: {r: 0, g: 255, b: 0, a: 255
+});
 
 // Copy a bitmap
 var copy = new ImageJS.Bitmap(otherBitmap);
@@ -74,7 +77,8 @@ var attachedBitmap = new ImageJS.Bitmap({
     data: new Buffer(4 * 100 * 100)
 });
 
-// Create an empty (null) bitmap, ready for reading from file or stream
+// Create an empty (null) bitmap, ready for reading
+// from file or stream
 var nullBitmap = new ImageJS.Bitmap();
 
 ```
@@ -130,7 +134,8 @@ var thumbnail = bitmap.resize({
     algorithm: "nearestNeighbor"
 });
 
-// resize to 100x150 bitmap using bilinear interpolation and cropping to fit, gravity center
+// resize to 100x150 bitmap using bilinear interpolation and cropping to fit,
+// gravity center
 var thumbnail = bitmap.resize({
     width: 100, height: 150,
     algorithm: "bilinearInterpolation",
@@ -138,7 +143,8 @@ var thumbnail = bitmap.resize({
     gravity: {x:0.5, y:0.5} // center - note: this is the default
 });
 
-// resize to 300x200 bitmap using bicubic interpolation and padding to fit, pad color solid red
+// resize to 300x200 bitmap using bicubic interpolation and padding to fit,
+// pad color solid red
 var thumbnail = bitmap.resize({
     width: 300, height: 200,
     algorithm: "bicubicInterpolation",
@@ -157,19 +163,23 @@ var thumbnail = bitmap.resize({
 
 ### Rotate
 ```javascript
-// rotate image 0.5 radians counterclockwise, keeping the dimensions the same and padding with red
+// rotate image 0.5 radians counterclockwise, keeping the dimensions the same
+// and padding with red
 // Note: default fit is "same" so including it in options is optional
 var red = {r: 255, g: 0, b: 0, a: 255};
 var rotated = bitmap.rotate({radians: 0.5, fit: "same", padColor: red});
 
-// rotate image 10 degrees clockwise, preserving entire image and padding with transparent white
+// rotate image 10 degrees clockwise, preserving entire image and padding with
+/  transparent white
 var transparentWhite = {r: 255, g: 255, b: 255, a: 0};
 var rotated = bitmap.rotate({degrees: -10, fit: "pad", padColor: transparentWhite});
 
-// rotate image 45 degress counterclockwise, cropping so all of the result image comes from the source.
+// rotate image 45 degress counterclockwise, cropping so all of the result
+// image comes from the source.
 var rotated = bitmap.rotate({degrees: 45, fit: "crop"});
 
-// rotate image 30 degrees counterclockwise, selecting custom dimensions. Note: image will not be scaled.
+// rotate image 30 degrees counterclockwise, selecting custom dimensions.
+// Note: image will not be scaled.
 // default padColor (if required) is transparentBlack.
 var rotated = bitmap.rotate({degrees: 30, fit: "custom", width: 100, height: 150});
 
